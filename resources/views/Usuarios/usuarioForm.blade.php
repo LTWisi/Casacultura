@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Casa de la cultura</title>
-        <link href="{{ asset('css/login.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css">
     </head>
 
     <body>
@@ -88,8 +88,8 @@
                 y.style.left = "550px";
                 z.style.left = "0";
             }
-
         </script>
+
     </body>
 </html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
