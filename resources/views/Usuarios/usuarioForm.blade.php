@@ -67,7 +67,7 @@
                     <button type="submit" class="submit-btn" id="register-btn">Registrarse</button>
                 </form>
                 <div class="imagen-arte">
-                    <img src="{{URL::asset('imagenes/artistas.png')}}" alt="logo">
+                    <img src="{{asset('imagenes/artistas.png')}}" alt="logo">
                 </div>
             </div>
         </div>

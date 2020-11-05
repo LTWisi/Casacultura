@@ -39,7 +39,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/usuario/create">
-                        <img src="imagenes//pngegg (1).png" height="30px" alt="Icono Usuario">
+                        <img src="{{asset('imagenes/egg.png')}}" height="30px" alt="Icono Usuario">
                     </a>
                 </li>
             </ul>
@@ -57,13 +57,13 @@
         <div id="carousel" class="carousel slide carousel" data-ride="carousel" data-pause="false">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="imagenes//1.png" class="d-block w-100" alt="Family">
+                    <img src="{{asset('imagenes/1.png')}}" class="d-block w-100" alt="Family">
                 </div>
                 <div class="carousel-item">
-                    <img src="imagenes//2.png" class="d-block w-100" alt="Students">
+                    <img src="{{asset('imagenes/2.png')}}" class="d-block w-100" alt="Students">
                 </div>
                 <div class="carousel-item">
-                    <img src="imagenes//3.png" class="d-block w-100" alt="Programmer">
+                    <img src="{{asset('imagenes/3.png')}}" class="d-block w-100" alt="Programmer">
                 </div>
                 <div class="overlay">
                     <div class="container">
@@ -140,7 +140,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-4 col-sm-12 col-md-6 text-center">
                     <div class="card">
-                        <img src="imagenes//avatar.jpg" class="card-img-top" alt="Foto Sergio">
+                        <img src="{{asset('imagenes/avatar.jpg')}}" class="card-img-top" alt="Foto Sergio">
                         <div class="card-body">
                             <h5 class="card-title">Sergio Peña</h5>
                             <p class="card-text">Me gusta aplicar la tecnología de una forma innovadora para resolver problemas de impacto.</p>
@@ -149,7 +149,7 @@
                 </div>
                 <div class="col-12 col-lg-4 col-sm-12 col-md-6 text-center">
                     <div class="card">
-                        <img src="imagenes//avatar.jpg" class="card-img-top" alt="Foto Luis">
+                        <img src="{{asset('imagenes/avatar.jpg')}}" class="card-img-top" alt="Foto Luis">
                         <div class="card-body">
                             <h5 class="card-title">Luis Torres</h5>
                             <p class="card-text">Es importante para mí emprender soluciones y mejoras mediante el uso de la tecnología.</p>

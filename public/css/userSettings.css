@@ -1,5 +1,5 @@
 .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(resources/bannerAjustes.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/imagenes/bannerAjustes.png);
     height: 100%;
     width: 100%;
     background-position: center;
