@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Symfony\Component\Translation\Catalogue\MergeOperation;
 
 class UsuarioController extends Controller
 {
@@ -38,25 +39,23 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         // Recibir datos
-        // $request->all();
 
         // Validar datos
         $request->validate([
-            'nombrePila' => 'required | string',
-            'email' => 'required | string | email',
-            'password' => 'required | string',
+            'nombrePila' => 'required | string | min:4',
+            'correo' => 'required | string | email',
+            'passwd' => 'required | string | min:5',
             'edad' => 'required | numeric',
-            'ocupacion' => 'required | string',
+            'ocupacion' => 'required | string'
         ]);
 
         // Guardar en BD
-
-        // $usuario = new Usuario(); 
-        // $usuario->nombrePila = $request->nombrePila();
+            // $usuario = new Usuario();
+            // $usuario->nombrePila = $request->nombrePila();
 
         Usuario::create( $request->all() );
 
-        return redirect('/usuario');
+        return redirect()->route('usuario.index');
     }
 
     /**
@@ -90,7 +89,17 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, Usuario $usuario)
     {
-        //
+        $request->validate([
+            'nombrePila' => 'required | string | min:4',
+            'correo' => 'required | string | email',
+            'passwd' => 'required | string | min:5',
+            'edad' => 'required | numeric',
+            'ocupacion' => 'required | string'
+        ]);
+
+        Usuario::where('id', $usuario->id)->update($request->except('_method', '_token'));
+
+        return redirect()->route('usuario.show', [$usuario]);
     }
 
     /**
@@ -101,6 +110,8 @@ class UsuarioController extends Controller
      */
     public function destroy(Usuario $usuario)
     {
-        //
+        $usuario->delete();
+
+        return redirect()->route('usuario.index');
     }
 }

@@ -19,6 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/usuario', [CursosController::class, 'index'] ); | metodo común
+// Route::post('/usuario', [CursosController::class, 'store'] ); | metodo común
 
 Route::resource('usuario', UsuarioController::class); // todas las rutas default

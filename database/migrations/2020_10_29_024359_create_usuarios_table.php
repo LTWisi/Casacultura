@@ -16,11 +16,12 @@ class CreateUsuariosTable extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
             $table->string('nombrePila');
-            $table->string('email');
-            $table->string('password');
+            $table->string('correo');
+            $table->string('passwd');
             $table->unsignedTinyInteger('edad');
             $table->string('ocupacion', 50);
-            $table->unsignedInteger('saldo');
+            $table->unsignedInteger('saldo')->default(0);
+            $table->timestamps();
         });
     }
 
