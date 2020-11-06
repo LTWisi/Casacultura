@@ -34,9 +34,9 @@
                 <form id="register" class="input-group" action="{{ route('usuario.store') }}" method="POST">
                     @csrf
                     <input type="text" for ="nombrePila" name="nombrePila" value="{{old('nombrePila')}}" class="input-field" placeholder="Nombre" requiered>
-                    <input type="email" for ="correo" name="correo" value="{{old('correo')}}" class="input-field" placeholder="Correo" required>
-                    <input type="number" for ="edad" name="edad" value="{{old('edad')}}" class="input-field" placeholder="Edad" required>
-                    <select for ="ocupacion" name="ocupacion" class="input-field" id="ocupacion-select" required>
+                    <input type="email" for ="correo" name="correo" value="{{old('correo')}}" class="input-field" placeholder="Correo"  >
+                    <input type="number" for ="edad" name="edad" value="{{old('edad')}}" class="input-field" placeholder="Edad"  >
+                    <select for ="ocupacion" name="ocupacion" class="input-field" id="ocupacion-select"  >
 
                         @if ( old('ocupacion') == "" )
                             <option value="Estudiante">Estudiante</option>

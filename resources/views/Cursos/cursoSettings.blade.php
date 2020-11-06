@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+    <!--   meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -17,7 +17,7 @@
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="resources/artistas.png" alt="Logo" height="30px">
+            <img src="{{ asset('imagenes/artistas.png') }}" alt="Logo" height="30px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -55,62 +55,103 @@
 
     <div class="hero">
         <div class="form-box">
-            <form>
+
+            @if ( $errors->any() )
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @if ( @isset($curso) )
+                <form action="{{ route('curso.update', [$curso]) }}" method="POST">
+                @method('PATCH')
+
                 <div class="row align-items-center">
                     <div class="col text-center text-uppercase">
-                        <small>Ajustes de</small>
-                        <h2>Curso</h2>
+                        <small>Ajustes de curso:</small>
+                        <h2>{{ $curso->nombre }}</h2>
+                    </div>
+                </div>
+            @else
+                <form action="{{ route('curso.store') }}" method="POST">
+
+                <div class="row align-items-center">
+                    <div class="col text-center text-uppercase">
+                        <small>Crear nuevo</small>
+                        <h2>{{ "Curso" }}</h2>
+                    </div>
+                </div>
+            @endif
+
+                @csrf
+
+                <div class="form-group row">
+                    <label for="nombre" class="col-sm-2 col-form-label">* Nombre: </label>
+                    <div class="col-sm-10">
+                        <input type="text" for="nombre" name="nombre" value="{{old('nombre') ?? $curso->nombre ?? ''}}" class="form-control" id="inputNombre">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="nombreCurso" class="col-sm-2 col-form-label">Nombre:</label>
+                    <label for="fechaPublicacion" class="col-sm-2 col-form-label">* Fecha:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputNombre">
+                        <input type="date" for="fechaPublicacion" name="fechaPublicacion" value="{{old('fechaPublicacion') ?? $curso->fechaPublicacion ?? ''}}" class="form-control" id="fechaCurso"  >
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="fechaCurso" class="col-sm-2 col-form-label">Fecha de creación:</label>
+                    <label for="costo" class="col-sm-2 col-form-label">Costo:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="fechaCurso">
+                        <input type="number" for="costo" name="costo" value="{{old('costo') ?? $curso->costo ?? ''}}" class="form-control" id="costoCurso" step=".1">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="costoCurso" class="col-sm-2 col-form-label">Costo:</label>
+                    <label for="n_estudiantes" class="col-sm-2 col-form-label">* N° Estudiantes:</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="costoCurso" step=".1">
+                        <input type="number" for="n_estudiantes" name="n_estudiantes" value="{{old('n_estudiantes') ?? $curso->n_estudiantes ?? ''}}" class="form-control" id="n_estudiantes"  >
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="descripcionCurso" class="col-sm-2 col-form-label">Descripción:</label>
+                    <label for="descripcion" class="col-sm-2 col-form-label">Descripción:</label>
                     <div class="col-sm-10">
-                        <textarea id="descripcionCurso" class="form-control" rows="5" cols="50"></textarea>
+                        <textarea for="descripcion" name="descripcion" class="form-control" rows="5" cols="50">{{old('descripcion') ?? $curso->descripcion ?? ''}}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="idiomaCurso" class="col-sm-2 col-form-label">Idioma:</label>
+                    <label for="idioma" class="col-sm-2 col-form-label">* Idioma:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="idiomaCurso">
+                        <input type="text" for="idioma" name="idioma" value="{{old('idioma') ?? $curso->idioma ?? ''}}" class="form-control" id="idiomaCurso"  >
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="aprendizajeCurso" class="col-sm-2 col-form-label">Aprendizaje:</label>
+                    <label for="aprendizaje" class="col-sm-2 col-form-label">Aprendizaje:</label>
                     <div class="col-sm-10">
-                        <textarea id="aprendizajeCurso" class="form-control" rows="5" cols="50"></textarea>
+                        <textarea for="aprendizajes" name="aprendizajes" class="form-control" rows="5" cols="50">{{old('aprendizajes') ?? $curso->aprendizajes ?? ''}}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="requisitosCurso" class="col-sm-2 col-form-label">Requisitos:</label>
+                    <label for="requisitos" class="col-sm-2 col-form-label">Requisitos:</label>
                     <div class="col-sm-10">
-                        <textarea id="requisitosCurso" class="form-control" rows="5" cols="50"></textarea>
+                        <textarea for="requisitos" name="requisitos" class="form-control" rows="5" cols="50">{{old('requisitos') ?? $curso->requisitos ?? ''}}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-10 justify-content-center">
-                        <button type="submit" class="btn btn-info">Modificar</button>
-                        <button type="submit" class="btn btn-danger">Eliminar curso</button>
+                        @if ( @isset($curso) )
+                            <button type="submit" class="btn btn-info">Modificar</button>
+                        @else
+                            <button type="submit" class="btn btn-info">Crear curso</button>
+                        @endif
+                    </form>
+                        <form action="{{ route('curso.destroy', [$curso]) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Eliminar curso</button>
+                        </form>
                     </div>
-                </div>
-            </form>
+              </div>
         </div>
 
         <!-- Footer -->

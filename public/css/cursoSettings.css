@@ -1,5 +1,5 @@
 .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(resources/bannerAjustes.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/imagenes/bannerAjustes.png);
     width: 100%;
     background-position: center;
     background-size: cover;
@@ -23,4 +23,9 @@
 
 #footer a {
     color: white;
+}
+
+textarea {
+    resize: none;
+    overflow: scroll;
 }

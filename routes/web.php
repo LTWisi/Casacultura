@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\CursoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,8 @@ Route::get('/', function () {
 // Route::post('/usuario', [CursosController::class, 'store'] ); | metodo común
 
 Route::resource('usuario', UsuarioController::class); // todas las rutas default
+
+Route::resource('curso', CursoController::class);
+
+
+

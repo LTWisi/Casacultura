@@ -83,10 +83,10 @@
     <!--/Main-Carousel-->
 
     <!-- Contenido Usuarios y Cursos -->
-    <section id="teachers" class="mt-4 mb-4">
+    <section id="teachers">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-lg-4 col-sm-12 col-md-6 text-center">
+                <div class="text-center">
                     <table align="center" border="5" style="border-collapse: separate; border-spacing: 10px 5px;">
                         <small>La comunidad de</small>
                         <h2>Usuarios</h2>
@@ -97,30 +97,13 @@
                             <th>Ocupación</th>
                         </tr>
                         @foreach ($usuarios as $usuario)
-                        <tr>
-                            <td> <a href="{{ route('usuario.show', [$usuario->id]) }}"> {{$usuario->nombrePila}} </a> </td>
-                            <td>{{$usuario->correo}}</td>
-                            <td>{{$usuario->edad}}</td>
-                            <td>{{$usuario->ocupacion}}</td>
-                        </tr>
+                            <tr>
+                                <td> <a href="{{ route('usuario.show', [$usuario->id]) }}"> {{$usuario->nombrePila}} </a> </td>
+                                <td>{{$usuario->correo}}</td>
+                                <td>{{$usuario->edad}}</td>
+                                <td>{{$usuario->ocupacion}}</td>
+                            </tr>
                         @endforeach
-                    </table>
-                </div>
-                <div class="col-12 col-lg-4 col-sm-12 col-md-6 text-center">
-                    <table align="center" border="5" style="border-collapse: separate; border-spacing: 10px 5px;">
-                        <small>Conoce nuestros</small>
-                        <h2>Cursos</h2>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Fecha</th>
-                            <th>Costo</th>
-                            <th>Cupo</th>
-                            <th>Idioma</th>
-                            <th>Descripción</th>
-                        </tr>
-                        <tr>
-                            <td>ID</td>
-                        </tr>
                     </table>
                 </div>
         </div>
