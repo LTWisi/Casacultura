@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es">
-
+<!--Página principal-->
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -16,7 +16,7 @@
 
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route('usuario.index') }}">
             <img src="{{asset('imagenes/artistas.png')}}" alt="Logo" height="30px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,19 +26,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('usuario.index') }}">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cursos</a>
+                    <a class="nav-link" href="{{ route('curso.index') }}">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Enseña</a>
+                    <a class="nav-link" href="{{ route('curso.create') }}">Enseña</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.blade.php" target="_blank">Iniciar sesión</a>
+                    <a class="nav-link" href="{{ route('usuario.create') }}" target="_blank">Iniciar sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/usuario/create">
+                    <a class="nav-link" href="#"><!--Modificación pendiente-->
                         <img src="{{asset('imagenes/egg.png')}}" height="30px" alt="Icono Usuario">
                     </a>
                 </li>

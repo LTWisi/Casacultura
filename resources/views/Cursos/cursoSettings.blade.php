@@ -16,7 +16,7 @@
 
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route('usuario.index') }}">
             <img src="{{ asset('imagenes/artistas.png') }}" alt="Logo" height="30px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,19 +26,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('usuario.index') }}">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cursos</a>
+                    <a class="nav-link" href="{{ route('curso.index') }}">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Enseña</a>
+                    <a class="nav-link" href="{{ route('curso.create') }}">Enseña</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Iniciar sesión</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cerrar sesión</a>
+                    <a class="nav-link" href="{{ route('usuario.create') }}">Iniciar sesión</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -54,9 +51,7 @@
     <!--/NavBar-->
 
     <div class="hero">
-        <div class="form-box">
-
-            @if ( $errors->any() )
+        @if ( $errors->any() )
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -65,7 +60,7 @@
                     </ul>
                 </div>
             @endif
-
+        <div class="form-box">
             @if ( @isset($curso) )
                 <form action="{{ route('curso.update', [$curso]) }}" method="POST">
                 @method('PATCH')
@@ -108,12 +103,6 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="n_estudiantes" class="col-sm-2 col-form-label">* N° Estudiantes:</label>
-                    <div class="col-sm-10">
-                        <input type="number" for="n_estudiantes" name="n_estudiantes" value="{{old('n_estudiantes') ?? $curso->n_estudiantes ?? ''}}" class="form-control" id="n_estudiantes"  >
-                    </div>
-                </div>
-                <div class="form-group row">
                     <label for="descripcion" class="col-sm-2 col-form-label">Descripción:</label>
                     <div class="col-sm-10">
                         <textarea for="descripcion" name="descripcion" class="form-control" rows="5" cols="50">{{old('descripcion') ?? $curso->descripcion ?? ''}}</textarea>
@@ -140,16 +129,18 @@
                 <div class="form-group row">
                     <div class="col-sm-10 justify-content-center">
                         @if ( @isset($curso) )
-                            <button type="submit" class="btn btn-info">Modificar</button>
+                            <button type="submit" class="btn btn-info mb-4">Modificar</button>
                         @else
                             <button type="submit" class="btn btn-info">Crear curso</button>
                         @endif
                     </form>
-                        <form action="{{ route('curso.destroy', [$curso]) }}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-danger">Eliminar curso</button>
-                        </form>
+                        @if ( @isset($curso) )
+                            <form action="{{ route('curso.destroy', [$curso]) }}" method="POST">
+                                @method('DELETE')
+                        @csrf
+                                <button type="submit" class="btn btn-danger">Eliminar curso</button>
+                            </form>
+                        @endif
                     </div>
               </div>
         </div>

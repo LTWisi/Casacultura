@@ -1,4 +1,5 @@
 <!doctype html>
+<!--Editar usuario-->
 <html lang="es">
 
 <head>
@@ -16,7 +17,7 @@
 
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"> <!--index.blade.php -->
+        <a class="navbar-brand" href="{{ route('usuario.index') }}"> <!--index.blade.php -->
             <img src="{{asset('imagenes/artistas.png')}}" alt="Logo" height="30px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,16 +27,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.blade.php">Home</a>
+                    <a class="nav-link" href="{{ route('usuario.index') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cursos</a>
+                    <a class="nav-link" href="{{ route('curso.index') }}">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Enseña</a>
+                    <a class="nav-link" href="{{ route('curso.create') }}">Enseña</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Iniciar sesión</a>
+                    <a class="nav-link disabled" href="#">Iniciar sesión</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -113,14 +114,14 @@
                     </select>
                 </div>
                 <div class="form-group row">
-                    <div class="col-sm-10">
+                    <div class="col-sm-10 mb-4">
                         <button type="submit" class="btn btn-info">Modificar</button>
                         </form>
 
                         <form action="{{ route('usuario.destroy', [$usuario]) }}" method="POST">
                             @method('DELETE')
                             @csrf
-                            <button type="submit" class="btn btn-danger" >Eliminar cuenta</button>
+                            <button type="submit" class="btn btn-danger mt-4" >Eliminar cuenta</button>
                         </form>
                     </div>
                 </div>

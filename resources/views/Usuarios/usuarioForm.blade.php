@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--Iniciar sesión - Registrar-->
 <html lang="es">
     <head>
         <meta charset="utf-8">
@@ -9,18 +10,16 @@
 
     <body>
         <div class="hero">
+            @if ( $errors->any() )
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
             <div class="form-box">
-
-                @if ( $errors->any() )
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{$error}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
                 <div class="button-box">
                     <div id="btn"></div>
                     <button type="button" class="toggle-btn" onclick="login()">Iniciar sesión</button>

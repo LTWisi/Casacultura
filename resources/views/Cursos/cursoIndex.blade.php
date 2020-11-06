@@ -16,7 +16,7 @@
 
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route('usuario.index') }}">
             <img src="{{asset('imagenes/artistas.png')}}" alt="Logo" height="30px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,21 +26,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('usuario.index') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cursos</a>
+                    <a class="nav-link" href="{{ route('curso.index') }}">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Enseña</a>
+                    <a class="nav-link" href="{{ route('curso.create') }}">Enseña</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.blade.php" target="_blank">Iniciar sesión</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/usuario/create">
-                        <img src="{{asset('imagenes/egg.png')}}" height="30px" alt="Icono Usuario">
-                    </a>
+                    <a class="nav-link disabled" href="#">Iniciar sesión</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -94,7 +89,6 @@
                             <th>Nombre</th>
                             <th>Fecha</th>
                             <th>Costo</th>
-                            <th>Estudiantes</th>
                             <th>Descripción</th>
                             <th>Idioma</th>
                             <th>Aprendizajes</th>
@@ -105,7 +99,6 @@
                                 <td> <a href="{{ route('curso.show', [$curso->id]) }}"> {{$curso->nombre}} </a> </td>
                                 <td>{{$curso->fechaPublicacion}}</td>
                                 <td>{{$curso->costo}}</td>
-                                <td>{{$curso->n_estudiantes}}</td>
                                 <td>{{$curso->descripcion}}</td>
                                 <td>{{$curso->idioma}}</td>
                                 <td>{{$curso->aprendizajes}}</td>

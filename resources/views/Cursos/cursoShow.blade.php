@@ -16,7 +16,7 @@
 
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route('usuario.index') }}">
             <img src="{{ asset('imagenes/artistas.png') }}" alt="Logo" height="30px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,19 +26,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('usuario.index') }}">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cursos</a>
+                    <a class="nav-link" href="{{ route('curso.index') }}">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Enseña</a>
+                    <a class="nav-link" href="{{ route('curso.create') }}">Enseña</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Iniciar sesión</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cerrar sesión</a>
+                    <a class="nav-link" href="{{ route('usuario.create') }}">Iniciar sesión</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -91,12 +88,6 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="n_estudiantes" class="col-sm-2 col-form-label">Costo:</label>
-                <div class="col-sm-10">
-                    <input type="number" for="n_estudiantes" name="n_estudiantes" value="{{ $curso->n_estudiantes }}" class="form-control" id="costoCurso" readonly>
-                </div>
-            </div>
-            <div class="form-group row">
                 <label for="descripcionCurso" class="col-sm-2 col-form-label">Descripción:</label>
                 <div class="col-sm-10">
                     <textarea id="descripcionCurso" for="descripcion" name="descripcion" class="form-control" rows="5" cols="50" readonly> {{ $curso->descripcion }} </textarea>
@@ -122,7 +113,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-10">
-                    <a href="{{ route('curso.edit', [$curso]) }}"> <button type="submit" class="btn btn-info">Administración de la Cuenta</button> </a>
+                    <a href="{{ route('curso.edit', [$curso]) }}"> <button type="submit" class="btn btn-info">Administración del curso</button> </a>
                 </div>
             </div>
         </div>

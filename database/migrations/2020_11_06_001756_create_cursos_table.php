@@ -18,7 +18,6 @@ class CreateCursosTable extends Migration
             $table->string('nombre');
             $table->date('fechaPublicacion');
             $table->unsignedFloat('costo')->default('0');
-            $table->unsignedBigInteger('n_estudiantes')->default('0');
             $table->text('descripcion')->nullable();
             $table->string('idioma', 50);
             $table->text('aprendizajes')->nullable();
