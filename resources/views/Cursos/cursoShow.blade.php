@@ -14,33 +14,7 @@
 
 <body>
 
-    <!--NavBar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ route('usuario.index') }}">
-            <img src="{{ asset('imagenes/artistas.png') }}" alt="Logo" height="30px">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('usuario.index') }}">Home<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('curso.index') }}">Cursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('curso.create') }}">Enseña</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('usuario.create') }}">Iniciar sesión</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!--/NavBar-->
+    @include('Layout.menu')
 
     <div class="hero">
         <div class="form-box">
@@ -110,32 +84,8 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer id="footer" class="pb-4 pt-4">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-12 col-lg">
-                        <a href="">Preguntas frecuentes</a>
-                    </div>
-                    <div class="col-12 col-lg">
-                        <a href="">Contáctanos</a>
-                    </div>
-                    <div class="col-12 col-lg">
-                        <a href="">Prensa</a>
-                    </div>
-                    <div class="col-12 col-lg">
-                        <a href="">Términos y concidiones</a>
-                    </div>
-                    <div class="col-12 col-lg">
-                        <a href="">Privacidad</a>
-                    </div>
-                    <div class="col-12 col-lg">
-                        <a href="">Estudiantes</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!--/Footer-->
+        @include('Layout.footer');
+
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
