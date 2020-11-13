@@ -16,4 +16,16 @@ class Usuario extends Model
         'edad',
         'ocupacion',
     ];
+
+    public function cursos() {
+        return $this->belongsTo(Curso::class);
+    }
+
+    public function creador() {
+        return $this->belongsTo(Creador::class);
+    }
+
+    public function pago() {
+        return $this->belongsTo(Pago::class);
+    }
 }

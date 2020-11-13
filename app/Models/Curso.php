@@ -19,4 +19,13 @@ class Curso extends Model
         'aprendizajes',
         'requisitos'
     ];
+
+    public function creadores() {
+        return $this->belongsTo(Creador::class);
+    }
+
+    public function usuarios() {
+        return $this->belongsTo(Usuario::class);
+    }
+
 }
